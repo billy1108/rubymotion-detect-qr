@@ -1,2 +1,3 @@
 Project Implementing QR with Rubymotion 
-by Billy caballero y Alonso Alvarez ( gay )
+
+by Billy caballero y Alonso Alvarez 
