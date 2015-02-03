@@ -9,54 +9,47 @@ class BaseQRViewController < UIViewController
   end
 
   def setup_elements
+    setup_camera
+  end
+
+  def setup_camera
     @supportedBarCodes = [AVMetadataObjectTypeQRCode, AVMetadataObjectTypeCode128Code, AVMetadataObjectTypeCode39Code, AVMetadataObjectTypeCode93Code, AVMetadataObjectTypeUPCECode, AVMetadataObjectTypePDF417Code, AVMetadataObjectTypeEAN13Code, AVMetadataObjectTypeAztecCode]
 
-    captureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-    NSLog("captureDevice==> #{captureDevice.inspect}")
-    error = nil
-    input = AVCaptureDeviceInput.deviceInputWithDevice(captureDevice, error: error)
-    if (error != nil)
-      return
-    end
-    captureSession = AVCaptureSession.new()
-    NSLog("input ==> #{input.inspect}")
-    captureSession.addInput(input)
-    captureMetadataOutput = AVCaptureMetadataOutput.new()
-    captureSession.addOutput(captureMetadataOutput)
-    captureMetadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-    captureMetadataOutput.metadataObjectTypes = @supportedBarCodes
+    @session = AVCaptureSession.alloc.init
+    @session.sessionPreset = AVCaptureSessionPresetHigh
 
-    @videoPreviewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-    @videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
-    @videoPreviewLayer.frame = view.layer.bounds
-    view.layer.addSublayer(@videoPreviewLayer)
+    @device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+    @error = Pointer.new('@')
+    @input = AVCaptureDeviceInput.deviceInputWithDevice(@device, error: @error)
 
-    captureSession.startRunning
-    view.bringSubviewToFront(messageLabel)
+    @previewLayer = AVCaptureVideoPreviewLayer.alloc.initWithSession(@session)
+    @previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
 
-    @qrCodeFrameView = UIView()
-    @qrCodeFrameView.layer.borderColor = UIColor.greenColor().CGColor
-    @qrCodeFrameView.layer.borderWidth = 2
-    view.addSubview(@qrCodeFrameView)
-    view.bringSubviewToFront(@qrCodeFrameView)        
+
+    @previewLayer.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+    self.view.layer.insertSublayer(@previewLayer, atIndex: 0)
+
+    @queue = Dispatch::Queue.new('camQueue')
+    @output = AVCaptureMetadataOutput.alloc.init
+    @output.setMetadataObjectsDelegate(self, queue: @queue.dispatch_object)
+
+    @session.addInput(@input)
+    @session.addOutput(@output)
+    @output.metadataObjectTypes = @supportedBarCodes
+    @session.startRunning
+    NSLog("session running: #{@session.running?}")
+    true    
   end
 
   #MARK :- DELEGATE
-  def captureOutput(captureOutput, didOutputMetadataObjects: metadataObjects, fromConnection: connection)  
-    if metadataObjects == nil || metadataObjects.count == 0 
-      @qrCodeFrameView.frame = CGRectZero
-      messageLabel.text = "No QR code is detected"
+  def captureOutput(captureOutput, didOutputMetadataObjects: metadataObjects, fromConnection: connection)
+    Dispatch::Queue.main.async do
+      NSLog("#{metadataObjects[0].stringValue}")
+      alert = UIAlertView.new
+      alert.message = "#{metadataObjects[0].stringValue}"
+      messageLabel.text = "#{metadataObjects[0].stringValue}"
+      alert.show
       return
-    end
-        
-    metadataObj = metadataObjects[0]
-    if @supportedBarCodes.include?(metadataObj.type)
-      barCodeObject = @videoPreviewLayer.transformedMetadataObjectForMetadataObject(metadataObj)
-      @qrCodeFrameView.frame = barCodeObject.bounds
-      
-      if metadataObj.stringValue != nil 
-        messageLabel.text = metadataObj.stringValue
-      end
     end
   end
 
