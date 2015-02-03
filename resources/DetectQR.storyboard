@@ -58,11 +58,47 @@
                     <navigationItem key="navigationItem" id="hRZ-Xc-mY0"/>
                     <connections>
                         <outlet property="messageLabel" destination="5IV-S1-M3C" id="TZR-9Z-nVS"/>
+                        <segue destination="ko1-jB-USe" kind="show" id="Inq-ne-wnC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEx-vo-o7t" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="724" y="457"/>
+        </scene>
+        <!--DetailQR View Controller-->
+        <scene sceneID="eD4-ad-FcU">
+            <objects>
+                <viewController id="ko1-jB-USe" customClass="DetailQRViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="G9N-V1-vDg"/>
+                        <viewControllerLayoutGuide type="bottom" id="IA6-WU-YnV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QpB-ri-otb">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="45465456" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="jnt-Jd-8zq">
+                                <rect key="frame" x="95" y="187" width="411" height="350"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jnt-Jd-8zq" firstAttribute="top" secondItem="G9N-V1-vDg" secondAttribute="bottom" constant="123" id="30b-cb-UHY"/>
+                            <constraint firstItem="jnt-Jd-8zq" firstAttribute="centerX" secondItem="QpB-ri-otb" secondAttribute="centerX" id="COb-OT-wMy"/>
+                            <constraint firstItem="IA6-WU-YnV" firstAttribute="top" secondItem="jnt-Jd-8zq" secondAttribute="bottom" constant="63" id="KiY-qF-1s4"/>
+                            <constraint firstItem="jnt-Jd-8zq" firstAttribute="leading" secondItem="QpB-ri-otb" secondAttribute="leadingMargin" constant="79" id="f9b-rc-xgP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="qrTextView" destination="jnt-Jd-8zq" id="hbM-mn-dLE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ed9-mY-t7Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1428" y="457"/>
         </scene>
     </scenes>
     <color key="tintColor" red="0.22745099663734436" green="0.88235300779342651" blue="0.77647066116333008" alpha="1" colorSpace="deviceRGB"/>

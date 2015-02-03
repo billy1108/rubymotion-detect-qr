@@ -18,6 +18,16 @@
 
 -(IBAction) viewDidLoad;
 -(IBAction) setup_elements;
+-(IBAction) setup_camera;
+
+@end
+
+@interface DetailQRViewController: UIViewController
+
+@property IBOutlet UITextView * qrTextView;
+
+-(IBAction) viewDidLoad;
+-(IBAction) setup_elements;
 
 @end
 

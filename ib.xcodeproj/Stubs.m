@@ -9,3 +9,6 @@
 @implementation BaseQRViewController
 @end
 
+@implementation DetailQRViewController
+@end
+
