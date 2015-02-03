@@ -13,4 +13,9 @@ Motion::Project::App.setup do |app|
   app.name = 'Detect QR'
 
   app.frameworks += %w(UIKit AVFoundation)
+
+  app.pods do
+    pod 'QRCodeReaderViewController', '~> 2.0.0'
+  end
+  
 end
