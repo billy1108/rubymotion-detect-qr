@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>A69DC289-92D7-4395-A064-2638E2EDDCDB</string>
+	<key>IDESourceControlProjectName</key>
+	<string>ib</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B0882221B7B3F710FC63EC8EB5F99DAF6A23363E</key>
+		<string>https://github.com/billy1108/rubymotion-detect-qr.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>ib.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B0882221B7B3F710FC63EC8EB5F99DAF6A23363E</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/billy1108/rubymotion-detect-qr.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B0882221B7B3F710FC63EC8EB5F99DAF6A23363E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B0882221B7B3F710FC63EC8EB5F99DAF6A23363E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>detectQR</string>
+		</dict>
+	</array>
+</dict>
+</plist>

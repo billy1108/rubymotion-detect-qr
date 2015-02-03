@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="E2N-S7-xOW">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="OGT-Sn-9g0">
+            <objects>
+                <navigationController id="E2N-S7-xOW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mM5-oE-XVH">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zEH-EY-uPp" kind="relationship" relationship="rootViewController" id="Gqk-hA-Tw4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCh-Vt-eoO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6" y="457"/>
+        </scene>
+        <!--BaseQR View Controller-->
+        <scene sceneID="5av-kl-khO">
+            <objects>
+                <viewController id="zEH-EY-uPp" customClass="BaseQRViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ofo-aD-V4B"/>
+                        <viewControllerLayoutGuide type="bottom" id="v9f-Iy-edi"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lNb-of-tsM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No QR Code is detected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5IV-S1-M3C">
+                                <rect key="frame" x="0.0" y="560" width="600" height="40"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="7oy-Bo-nV5"/>
+                                    <constraint firstAttribute="width" constant="600" id="GvP-hE-Pet"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="5IV-S1-M3C" secondAttribute="trailing" constant="-16" id="4Rd-XM-tcq"/>
+                            <constraint firstItem="5IV-S1-M3C" firstAttribute="leading" secondItem="lNb-of-tsM" secondAttribute="leading" id="JZx-ak-mcv"/>
+                            <constraint firstItem="5IV-S1-M3C" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Ofo-aD-V4B" secondAttribute="bottom" priority="250" constant="540" id="PGN-ZK-kNE"/>
+                            <constraint firstItem="v9f-Iy-edi" firstAttribute="top" secondItem="5IV-S1-M3C" secondAttribute="bottom" id="QWC-JM-uVj"/>
+                            <constraint firstItem="5IV-S1-M3C" firstAttribute="leading" secondItem="lNb-of-tsM" secondAttribute="leadingMargin" constant="-16" id="fYF-nP-RUJ"/>
+                            <constraint firstItem="5IV-S1-M3C" firstAttribute="bottom" secondItem="v9f-Iy-edi" secondAttribute="top" id="xdk-v8-jQQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="hRZ-Xc-mY0"/>
+                    <connections>
+                        <outlet property="messageLabel" destination="5IV-S1-M3C" id="TZR-9Z-nVS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEx-vo-o7t" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="724" y="457"/>
+        </scene>
+    </scenes>
+    <color key="tintColor" red="0.22745099663734436" green="0.88235300779342651" blue="0.77647066116333008" alpha="1" colorSpace="deviceRGB"/>
+</document>
