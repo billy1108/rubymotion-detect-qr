@@ -14,12 +14,15 @@ Motion::Project::App.setup do |app|
   app.version = '1.0'
   app.short_version = '1.0'
   app.device_family = :iphone
-  app.deployment_target = "8.0"
+  app.deployment_target = "7.0"
   app.interface_orientations = [:portrait]
   app.archs['iPhoneOS'] |= ['arm64']
 
-  app.frameworks += %w(UIKit AVFoundation)
+  app.frameworks += %w(UIKit AVFoundation AudioToolbox MediaPlayer)
 
+  app.pods do
+    pod 'QRCodeReaderViewController', '~> 2.0.0'
+  end
 
   # YogaBuddy Credentials
 

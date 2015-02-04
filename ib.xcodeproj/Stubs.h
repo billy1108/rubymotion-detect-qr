@@ -4,7 +4,6 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import <CoreGraphics/CoreGraphics.h>
-#import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface AppDelegate: UIResponder <UIApplicationDelegate>
@@ -18,6 +17,7 @@
 
 -(IBAction) viewDidLoad;
 -(IBAction) setup_elements;
+-(IBAction) scanAction:(id) id;
 
 @end
 
